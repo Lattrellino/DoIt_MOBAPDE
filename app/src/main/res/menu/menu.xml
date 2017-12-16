@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item
+    android:id="@+id/menu_all"
+    android:title="All Tasks"
+    app:showAsAction="never"></item>
+
+    <item
+        android:id="@+id/menu_finished"
+        android:title="Finished Tasks"
+        app:showAsAction="never"></item>
+
+    <item
+        android:id="@+id/menu_thisday"
+        android:title="Tasks for this Day"
+        app:showAsAction="never"></item>
+
+    <item
+        android:id="@+id/menu_thisweek"
+        android:title="Tasks for this Week"
+        app:showAsAction="never"></item>
+</menu>

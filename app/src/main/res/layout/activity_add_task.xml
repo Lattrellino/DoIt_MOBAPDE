@@ -5,28 +5,39 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
         android:orientation="horizontal"
+        android:background="@color/colorPrimary"
         android:gravity="end"
         >
 
 
 
         <ImageButton
-            android:id="@+id/btn_save"
+            android:id="@+id/btn_savetask"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/success"
+            android:background="@color/colorPrimary"
+            android:padding="5dp"
+            android:src="@drawable/ic_launcher_check"
             />
         <ImageButton
             android:id="@+id/btn_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/error"/>
+            android:background="@color/colorPrimary"
+            android:padding="5dp"
+            android:src="@drawable/ic_launcher_cancel"
+            />
 
 
 
     </LinearLayout>
+
+    <!--<include layout="@layout/tool_bar_add"-->
+        <!--android:id="@+id/toolbar_add">-->
+
+    <!--</include>-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -71,4 +82,27 @@
         android:layout_marginEnd="20dp"
         android:hint="Set Time Here"
         android:textSize="15dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Place"
+        android:layout_marginStart="20dp"
+        android:textSize="15dp"
+        android:textColor="#00ca63"/>
+    <TextView
+        android:id="@+id/tv_place"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Set Place here"
+        android:textSize="15dp"/>
+    <Button
+        android:id="@+id/btn_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+
+        android:hint="Set Place using Google Maps"/>
 </LinearLayout>

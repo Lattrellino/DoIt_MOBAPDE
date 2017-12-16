@@ -1,7 +1,7 @@
 package com.example.jayjay.doit;
 
 /**
- * Created by Jayjay on 11/13/2017.
+ * Created by Jayjay on 04/12/2017.
  */
 
 public class Task {
@@ -10,11 +10,34 @@ public class Task {
     public static final String COLUMN_CONTENT = "content";
     public static final String COLUMN_DATE = "date";
     public static final String COLUMN_TIME = "time";
+    public static final String COLUMN_LOCATION = "location";
+    public static final String COLUMN_ISDONE = "isDone";
+
+    public static final String TASK_DONE = "true";
+    public static final String TASK_NOT_DONE = "false";
 
     private int id;
     private String content;
     private String date;
     private String time;
+    private String location;
+    private String isDone;
+
+    public String getDone() {
+        return isDone;
+    }
+
+    public void setDone(String done) {
+        isDone = done;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
     public int getId() {
         return id;
@@ -48,15 +71,15 @@ public class Task {
         this.time = time;
     }
 
-
-
     public Task(){}
 
-    public Task(int id, String content, String date, String time) {
+    public Task(int id, String content, String date, String time,String location) {
         this.id = id;
         this.content = content;
         this.date = date;
         this.time = time;
+        this.location = location;
+        this.isDone = isDone;
     }
 
     public Task(String content, String date, String time) {

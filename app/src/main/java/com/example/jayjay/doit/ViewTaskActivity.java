@@ -1,10 +1,11 @@
 package com.example.jayjay.doit;
 
 /**
- * Created by Jayjay on 11/13/2017.
+ * Created by Jayjay on 04/12/2017.
  */
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -12,12 +13,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
+
+import static com.example.jayjay.doit.AddTaskActivity.MAP_RESULT;
 
 public class ViewTaskActivity extends AppCompatActivity{
     private EditText etTask, etDate, etTime;
@@ -26,6 +31,8 @@ public class ViewTaskActivity extends AppCompatActivity{
     private TimePickerDialog.OnTimeSetListener mTimeSetListener;
     private DbHelper dbHelper;
     private Task currentTask;
+    TextView tvPlace;
+    Button buttonMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +42,11 @@ public class ViewTaskActivity extends AppCompatActivity{
         etTask = (EditText) findViewById(R.id.et_task);
         etDate = (EditText) findViewById(R.id.et_date);
         etTime = (EditText) findViewById(R.id.et_time);
+        tvPlace = (TextView) findViewById(R.id.tv_place);
         buttonSave = (ImageButton) findViewById(R.id.btn_savechanges);
         buttonCancel = (ImageButton) findViewById(R.id.btn_cancel);
         buttonDelete = (ImageButton) findViewById(R.id.btn_delete);
+        buttonMap = (Button) findViewById(R.id.btn_map);
 
         dbHelper = new DbHelper(getBaseContext());
 
@@ -87,13 +96,22 @@ public class ViewTaskActivity extends AppCompatActivity{
                 etTime.setText(time);
             }
         };
+
+        buttonMap.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                startActivityForResult(new Intent(getBaseContext(), MapsActivity.class), MAP_RESULT);
+            }
+        });
+
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String task = etTask.getText().toString();
                 String date = etDate.getText().toString();
                 String time = etTime.getText().toString();
-                dbHelper.updateTask(new Task(currentTask.getId(), task, date, time));
+                String place = tvPlace.getText().toString();
+                dbHelper.updateTask(new Task(currentTask.getId(), task, date, time, place));
                 finish();
             }
         });
@@ -102,6 +120,7 @@ public class ViewTaskActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 updateTextViewDisplay();
+                finish();
             }
         });
 
@@ -120,5 +139,6 @@ public class ViewTaskActivity extends AppCompatActivity{
         etTask.setText(currentTask.getContent());
         etDate.setText(currentTask.getDate());
         etTime.setText(currentTask.getTime());
+        tvPlace.setText(currentTask.getLocation());
     }
 }

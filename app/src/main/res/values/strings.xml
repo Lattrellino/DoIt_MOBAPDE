@@ -1,12 +1,17 @@
 <resources>
-    <string name="app_name">Do It</string>
-    <string-array name="categories">
-        <item>All Tasks</item>
-        <item>Default</item>
-        <item>Personal</item>
-        <item>Shopping</item>
-        <item>Wishlist</item>
-        <item>Work</item>
-        <item>Finished Tasks</item>
-    </string-array>
+    <string name="app_name">Do It!</string>
+    <string name="menu_name">Finished Tasks</string>
+    <string name="google_maps_key">AIzaSyDg9m4hkba9NDXsl_OW7B8tcLFdqned7yU</string>
+    <string name="title_activity_maps">Map</string>
+
+    <!--for spinner-->
+    <!--<string-array name="categories">-->
+        <!--<item>All Tasks</item>-->
+        <!--<item>Default</item>-->
+        <!--<item>Personal</item>-->
+        <!--<item>Shopping</item>-->
+        <!--<item>Wishlist</item>-->
+        <!--<item>Work</item>-->
+        <!--<item>Finished Tasks</item>-->
+    <!--</string-array>-->
 </resources>
